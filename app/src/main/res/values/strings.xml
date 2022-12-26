@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Robolectric Getting Started</string>
+    <string name="login_activity_text">Login Activity</string>
+    <string name="login_btn">Login</string>
+</resources>
