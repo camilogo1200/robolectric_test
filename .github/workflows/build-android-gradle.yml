@@ -6,12 +6,16 @@ jobs:
   compile-test-android:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout project sources
+        uses: actions/checkout@v2
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
       - name: gradle-clean ( refresh dependencies)
-        run: gradlew --refresh-dependencies clean
+        run: ./gradlew --refresh-dependencies clean
       - name: gradle-build (AssembleDebug)
-        run: gradlew app:assembleDebug
+        run: ./gradlew app:assembleDebug
       - name: Run unit test for debug build (testDebugUnitTest)
-        run: gradlew app:testDebugUnitTest
+        run: ./gradlew app:testDebugUnitTest
       ##-name: assembleDebugAndroidTest
       - name: Run Unit Test for release build (testReleaseUnitTest)
         run: gradlew app:testReleaseUnitTest
