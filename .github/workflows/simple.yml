@@ -1,0 +1,14 @@
+name: Compile
+
+on: [push,pull_request]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ubuntu Version
+        run: lsb_release -d
+      - name: JAVA Version
+        run: echo java -version
+      - name: Gradle Version
+        run: gradle --version
