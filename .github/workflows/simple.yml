@@ -15,3 +15,12 @@ jobs:
         shell: python
       - name: Gradle Version
         run: gradle --version
+
+  run-windows-command:
+    runs-on: windows-latest
+    steps:
+      - name: Directory Powershell
+        run: Get-Location
+      - name:  Directory bash
+        run: pwd
+        shell: bash
