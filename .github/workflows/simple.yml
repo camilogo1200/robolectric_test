@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: Ubuntu Version
         run: lsb_release -d
-      - name: JAVA Version
-        run: echo java -version
+      - name: python command 
+        run : |
+          import platform
+          print (platform.processor())
+        shell: python
       - name: Gradle Version
         run: gradle --version
