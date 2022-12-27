@@ -28,4 +28,4 @@ jobs:
         run: ./gradlew app:testDebugUnitTest
       ##-name: assembleDebugAndroidTest
       - name: Run Unit Test for release build (testReleaseUnitTest)
-        run: gradlew app:testReleaseUnitTest
+        run: ./gradlew app:testReleaseUnitTest
