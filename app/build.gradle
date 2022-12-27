@@ -39,6 +39,22 @@ android {
 
 }
 
+configurations {
+    detekt
+}
+
+def detektTask = tasks.register("detekt", JavaExec) {
+    main = "io.gitlab.arturbosch.detekt.cli.Main"
+    classpath = configurations.detekt
+
+    def input = "$projectDir"
+    def config = "$rootDir\\detekt.yml"
+    def exclude = ".*/build/.*,.*/resources/.*"
+    def params = ['-i', input, '-c', config, '-ex', exclude]
+
+    args(params)
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -49,5 +65,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
+    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.22.0'
     testImplementation 'org.robolectric:robolectric:4.9.1'
 }
+check.dependsOn detektTask
+

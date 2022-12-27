@@ -1,6 +1,6 @@
 name: KtLint Format
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   ktlint-linting-integration:
@@ -22,5 +22,7 @@ jobs:
         run: chmod +x ./gradlew
       - name: debug-lint
         run: ./gradlew lint
+      - name: KTlint
+        run: ./gradlew ktlint
       - name: KTlint-format
         run: ./gradlew ktlintformat
