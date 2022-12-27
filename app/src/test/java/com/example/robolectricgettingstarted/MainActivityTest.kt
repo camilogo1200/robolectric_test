@@ -3,7 +3,6 @@ package com.example.robolectricgettingstarted
 import android.content.Intent
 import android.widget.Button
 import org.junit.Assert.*
-
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -21,9 +20,8 @@ class MainActivityTest {
 
     @Test
     fun clickingLogin_shouldStartLoginActivity() {
-
         val controller = Robolectric.buildActivity(MainActivity::class.java)
-        controller.setup() //moves activity to RESUMED state
+        controller.setup() // moves activity to RESUMED state
         val activity = controller.get()
 
         activity.findViewById<Button>(R.id.login_btn).performClick()
@@ -33,6 +31,5 @@ class MainActivityTest {
         val actualIntent = Shadows.shadowOf(RuntimeEnvironment.getApplication()).nextStartedActivity
 
         assertEquals(expectedIntent.component, actualIntent.component)
-
     }
 }
